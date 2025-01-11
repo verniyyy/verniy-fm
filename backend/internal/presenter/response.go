@@ -24,17 +24,14 @@ func (e *ClientError) Error() string {
 type ServerError struct{}
 
 func OK(w http.ResponseWriter, data any) {
-	w.WriteHeader(http.StatusOK)
 	writeJSON(w, http.StatusOK, data)
 }
 
 func BadRequest(w http.ResponseWriter, err error) {
-	w.WriteHeader(http.StatusBadRequest)
 	writeJSON(w, http.StatusBadRequest, map[string]string{"error": err.Error()})
 }
 
 func InternalServerError(w http.ResponseWriter, err error) {
-	w.WriteHeader(http.StatusInternalServerError)
 	writeJSON(w, http.StatusInternalServerError, map[string]string{"error": err.Error()})
 }
 
