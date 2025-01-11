@@ -13,8 +13,8 @@ func (p Path) String() string {
 }
 
 type Metadata struct {
-	Name    string
-	Size    int64
-	IsDir   bool
-	ModTime time.Time
+	Name    string    `json:"name"`
+	Size    int64     `json:"size"`
+	IsDir   bool      `json:"is_dir"`
+	ModTime time.Time `json:"mod_time"`
 }
