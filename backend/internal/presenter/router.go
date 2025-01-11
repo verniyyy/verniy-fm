@@ -14,9 +14,10 @@ func NewRouter() chi.Router {
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Hello, Verniy file manager!"))
 	})
-	r.Route("/file", func(r chi.Router) {
-		r.Post("/list", file.ListFiles)
+	r.Route("/api", func(r chi.Router) {
+		r.Route("/file", func(r chi.Router) {
+			r.Post("/list", file.ListFiles)
+		})
 	})
-
 	return r
 }
